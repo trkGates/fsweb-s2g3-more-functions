@@ -16,9 +16,29 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+  // Dosya adını saklayacak değişkeni tanımlayın.
+  let fileName = "";
+  
+  // Eğer path boş bir string ise, direkt olarak boş string döndürün.
+  if (path === "") {
+    return fileName;
+  }
+  
+  // Dosya yolu içindeki son / karakterinin index'ini bulun.
+  const lastIndex = path.lastIndexOf("/");
+  
+  // Eğer / karakteri yoksa, path bir dosya adıdır, dolayısıyla direkt olarak path'i döndürün.
+  if (lastIndex === -1) {
+    return path;
+  }
+  
+  // Eğer / karakteri varsa, dosya adı / karakterinden sonra gelen kısımdır.
+  fileName = path.substr(lastIndex + 1);
+  // Dosya adını döndürün.
+  return fileName;
 }
+
 
 /*
   GÖREV 2
@@ -38,9 +58,17 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+let degerler=[109, 216, 288, 143, 71, 185, -278, 194, 5];
+function ortalamaBul(degerler) {
+  let toplam =0;
+  if(degerler.length===0) return null;
+
+    for(let i=0;i<degerler.length;i++){
+       toplam +=degerler[i];
+    }
+    return toplam/degerler.length;
 }
+console.log(ortalamaBul(degerler))
 
 /*
   GÖREV 3
@@ -62,9 +90,28 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+let degerler1=[109, 216, 288, 143, 71, 185, -278, 194, 5];
+function ortalamadanBuyukleriBul(degerler1) {
+  let dogrusayilar=[];
+  let toplam =0;
+  let ortalama=0;
+  if(degerler1.length===0) return null;
+
+    for(let i=0;i<degerler1.length;i++){
+       toplam +=degerler1[i];
+    }
+    ortalama= toplam/degerler1.length
+    
+    for(let i=0;i<degerler1.length;i++){
+      if(ortalama<=degerler1[i]){
+        dogrusayilar.push(degerler1[i]);
+      }
+    }
+    return dogrusayilar;
 }
+console.log(ortalamadanBuyukleriBul(degerler1))
+
+
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
